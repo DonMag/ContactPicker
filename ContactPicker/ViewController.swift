@@ -60,11 +60,11 @@ class ViewController: UIViewController, CNContactPickerDelegate {
 	
 	@IBAction func doChooseContact(sender: AnyObject) {
 
+		self.resetSelection()
+		
 		AppDelegate.getAppDelegate().requesAccessToContacts{ (accessGranted) -> Void in
 			if accessGranted {
 
-				self.resetSelection()
-				
 				let contactPickerViewController = CNContactPickerViewController()
 				
 				contactPickerViewController.delegate = self
